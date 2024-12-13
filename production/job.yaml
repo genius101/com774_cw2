@@ -1,0 +1,13 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: .
+command: python model1.py --trainingdata ${{ inputs.training_data }}
+inputs:
+  training_data:
+    # Named Type under Data (Assets)
+    type: uri_file
+    # Named asset URI for the path to the training data under Data (Assets)
+    path: azureml:cw2_774:1
+environment: azureml://registries/azureml/environments/sklearn-1.1/versions/14
+compute: cw2-774-v1
+experiment_name: cw2-774-v1-HAR-Model
+description: HAR-Model for CW2
